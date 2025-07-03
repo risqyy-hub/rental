@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - AutoRent</title>
+    <link rel="stylesheet" href="stylesm.css">
+    <link rel="stylesheet" href="/jss/m.js">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* Global Styles */
+:root {
+    --primary-color: #ff4d30;
+    --secondary-color: #2d2d2d;
+    --accent-color: #ff8c2c;
+    --light-gray: #f6f6f6;
+    --dark-gray: #777;
+    --text-color: #333;
+    --white: #fff;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* Header */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    padding: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.login-btn, .register-btn {
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.login-btn {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.login-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.register-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.register-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Page Banner */
+.page-banner {
+    background: linear-gradient(to right, rgba(45, 45, 45, 0.9), rgba(45, 45, 45, 0.7)), url('/api/placeholder/1600/500');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    padding: 80px 0;
+}
+
+.page-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.page-banner p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-info, .contact-form-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info {
+    background-color: var(--light-gray);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.contact-info h2, .contact-form-container h2 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.contact-text h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.contact-text p {
+    color: var(--dark-gray);
+    margin-bottom: 5px;
+}
+
+.social-links-large h3 {
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+}
+
+/* Contact Form */
+.contact-form-container {
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Maps Section */
+.maps-section {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.map-container {
+    position: relative;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    max-width: 300px;
+}
+
+.map-overlay h3 {
+    margin-bottom: 10px;
+}
+
+.map-overlay p {
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+}
+
+/* Branches Section */
+.branches-section {
+    padding: 80px 0;
+}
+
+.branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.branch-card {
+    background-color: var(--light-gray);
+    padding: 25px;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.branch-card:hover {
+    box-shadow: var(--box-shadow);
+    transform: translateY(-5px);
+}
+
+.branch-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.branch-card p {
+    margin-bottom: 8px;
+    color: var(--dark-gray);
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--white);
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.faq-question h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px;
+    max-height: 200px;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding-top: 70px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-column h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-column p {
+    margin-bottom: 20px;
+    color: #aaa;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #aaa;
+    transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    background-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+    color: #aaa;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--white);
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--dark-gray);
+    transition: var(--transition);
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+}
+
+.auth-form .form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .contact-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .auth-buttons {
+        display: none;
+    }
+    
+    .branches-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-banner {
+        padding: 60px 0;
+    }
+    
+    .contact-info, .contact-form-container {
+        padding: 25px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .modal-content {
+        padding: 25px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Auto<span>Rent</span></div>
+                <div class="auth-buttons">
+                    <a href="index.html" class="register-btn">kembali</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <div class="container">
+            <h1>Kontak Kami</h1>
+            <p>Kami siap membantu Anda</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Informasi Kontak</h2>
+                    <div class="contact-detail">
+                        <div class="contact-icon">L</div>
+                        <div class="contact-text">
+                            <h3>Alamat</h3>
+                            <p>Jl. Raya Utama No. 123, Jakarta Pusat</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">P</div>
+                        <div class="contact-text">
+                            <h3>Telepon</h3>
+                            <p>+62 21 5678 9012</p>
+                            <p>+62 812 3456 7890 (WhatsApp)</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">E</div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>info@autorent.com</p>
+                            <p>cs@autorent.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">T</div>
+                        <div class="contact-text">
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Jumat: 08.00 - 20.00</p>
+                            <p>Sabtu - Minggu: 09.00 - 18.00</p>
+                        </div>
+                    </div>
+                    <div class="social-links-large">
+                        <h3>Ikuti Kami</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">FB</a>
+                            <a href="#" class="social-icon">IG</a>
+                            <a href="#" class="social-icon">TW</a>
+                            <a href="#" class="social-icon">YT</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h2>Kirim Pesan</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maps Section -->
+    <section class="maps-section">
+        <div class="container">
+            <h2 class="section-title">Lokasi Kami</h2>
+            <div class="map-container">
+                <!-- Placeholder for map, in a real site would use Google Maps or other mapping service -->
+                <img src="/api/placeholder/1200/400" alt="Peta Lokasi AutoRent" class="map-image">
+                <div class="map-overlay">
+                    <h3>Kantor Pusat</h3>
+                    <p>Jl. Raya Utama No. 123, Jakarta Pusat</p>
+                    <button class="btn btn-small">Lihat di Google Maps</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Branches -->
+    <section class="branches-section">
+        <div class="container">
+            <h2 class="section-title">Kantor Cabang</h2>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <h3>Jakarta Selatan</h3>
+                    <p>Jl. Kemang Raya No. 45, Jakarta Selatan</p>
+                    <p>Telepon: +62 21 7654 3210</p>
+                    <p>Email: jaksel@autorent.com</p>
+                </div>
+                <div class="branch-card">
+                    <h3>Bandung</h3>
+                    <p>Jl. Asia Afrika No. 67, Bandung</p>
+                    <p>Telepon: +62 22 8765 4321</p>
+                    <p>Email: bandung@autorent.com</p>
+                </div>
+                <div class="branch-card">
+                    <h3>Surabaya</h3>
+                    <p>Jl. Tunjungan No. 89, Surabaya</p>
+                    <p>Telepon: +62 31 9876 5432</p>
+                    <p>Email: surabaya@autorent.com</p>
+                </div>
+                <div class="branch-card">
+                    <h3>Bali</h3>
+                    <p>Jl. Sunset Road No. 101, Kuta, Bali</p>
+                    <p>Telepon: +62 361 2345 6789</p>
+                    <p>Email: bali@autorent.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Pertanyaan Umum</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana cara menyewa mobil di AutoRent?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda dapat menyewa mobil melalui website kami, menghubungi kami via telepon, atau datang langsung ke kantor kami. Pilih mobil yang Anda inginkan, tentukan tanggal penyewaan, dan lengkapi data diri Anda.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apa saja dokumen yang dibutuhkan untuk menyewa mobil?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Dokumen yang diperlukan adalah KTP, SIM A yang masih berlaku, dan deposit sesuai dengan jenis mobil yang disewa. Untuk warga negara asing, diperlukan paspor dan SIM internasional.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah AutoRent menyediakan layanan antar-jemput?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami menyediakan layanan antar-jemput mobil ke lokasi Anda dengan biaya tambahan tergantung jarak. Layanan ini tersedia untuk area dalam kota.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana kebijakan pembatalan sewa?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pembatalan 24 jam sebelum waktu sewa akan dikenakan biaya 25% dari total sewa. Pembatalan kurang dari 24 jam dikenakan biaya 50%. Tidak hadir tanpa pemberitahuan dikenakan biaya 100%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AutoRent</h3>
+                    <p>Layanan persewaan mobil terpercaya dengan armada berkualitas dan pelayanan profesional.</p>
+                    <div class="social-links">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>YT</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="mobil.php">Mobil</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Sewa Mobil</a></li>
+                        <li><a href="#">Sewa dengan Sopir</a></li>
+                        <li><a href="#">Antar-Jemput</a></li>
+                        <li><a href="#">Sewa Jangka Panjang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li>Jl. Raya Utama No. 123, Jakarta</li>
+                        <li>info@autorent.com</li>
+                        <li>+62 21 5678 9012</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoRent. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="form-title">Masuk ke Akun Anda</h2>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn">Masuk</button>
+                <div class="form-footer">
+                    <p>Belum punya akun? <a href="#" id="showRegister">Daftar di sini</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="form-title">Daftar Akun Baru</h2>
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label for="reg-name">Nama Lengkap</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-phone">Nomor Telepon</label>
+                    <input type="tel" id="reg-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm-password">Konfirmasi Password</label>
+                    <input type="password" id="reg-confirm-password" required>
+                </div>
+                <button type="submit" class="btn">Daftar</button>
+                <div class="form-footer">
+                    <p>Sudah punya akun? <a href="#" id="showLogin">Masuk di sini</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

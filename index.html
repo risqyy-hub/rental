@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentCar - Sewa Mobil Terpercaya</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* Variabel CSS */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #2ec4b6;
+            --dark-color: #293241;
+            --light-color: #e0fbfc;
+            --accent-color: #ee964b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  white-space: nowrap;
+}
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .auth-buttons a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn {
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .login-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .register-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .register-btn:hover {
+            background-color: #ff5722;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/random/1600x900/?car') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #ff5722;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Search Form */
+        .search-section {
+            background-color: white;
+            padding: 2rem 0;
+            margin-top: -50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.25);
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            grid-column: 1 / -1;
+        }
+
+        .search-btn:hover {
+            background-color: #ff5722;
+        }
+
+        /* Featured Cars */
+        .section-title {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .cars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .car-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .car-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.1);
+        }
+
+        .car-info {
+            padding: 1.5rem;
+        }
+
+        .car-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .car-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .car-price {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .car-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .car-detail {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .car-detail i {
+            margin-right: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .rent-now-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .rent-now-btn:hover {
+            background-color: #ff5722;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--light-color);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            font-size: 2rem;
+        }
+
+        .step-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            color: #444;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+            color: var(--dark-color);
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .search-section {
+                margin-top: -30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.php" class="logo">Rent<span>Car</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="mobil.php">Mobil</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Masuk</a>
+                <a href="register.php" class="register-btn">Daftar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Sewa Mobil Terbaik dengan Harga Terjangkau</h1>
+            <p>Temukan mobil impian Anda untuk perjalanan nyaman dan menyenangkan. Pilihan lengkap dengan harga terbaik!</p>
+            <a href="#featured-cars" class="cta-btn">Sewa Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search-section" class="search-section">
+        <div class="container">
+            <form class="search-form" action="search.php" method="GET">
+                <div class="form-group">
+                    <label for="pickup-location">Lokasi Pengambilan</label>
+                    <select class="form-control" id="pickup-location" name="pickup-location" required>
+                        <option value="">Pilih Lokasi</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="surabaya">Surabaya</option>
+                        <option value="bandung">Bandung</option>
+                        <option value="yogyakarta">Yogyakarta</option>
+                        <option value="bali">Bali</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pickup-date">Tanggal Pengambilan</label>
+                    <input type="date" class="form-control" id="pickup-date" name="pickup-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="return-date">Tanggal Pengembalian</label>
+                    <input type="date" class="form-control" id="return-date" name="return-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="car-type">Jenis Mobil</label>
+                    <select class="form-control" id="car-type" name="car-type">
+                        <option value="">Semua Jenis</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="mpv">MPV</option>
+                        <option value="hatchback">Hatchback</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Cari Mobil</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Featured Cars -->
+    <section id="featured-cars" class="featured-cars">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mobil Unggulan Kami</h2>
+                <p>Pilihan mobil terbaik dengan kondisi prima dan harga terjangkau</p>
+            </div>
+
+            <div class="cars-container">
+                <!-- Car Card 1 -->
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="jm/toyota/avanza.png" alt="Toyota Avanza">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3 class="car-name">Toyota Avanza</h3>
+                            <p class="car-price">Rp 350.000 / hari</p>
+                        </div>
+                        <div class="car-details">
+                            <p class="car-detail"><i class="fas fa-user"></i> 7 Kursi</p>
+                            <p class="car-detail"><i class="fas fa-suitcase"></i> 3 Koper</p>
+                            <p class="car-detail"><i class="fas fa-gas-pump"></i> Bensin</p>
+                            <p class="car-detail"><i class="fas fa-cog"></i> Manual</p>
+                        </div>
+                        <a href="payment.php" class="rent-now-btn">Sewa Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Car Card 2 -->
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="jm/toyota/inovva.png" alt="Toyota Innova">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3 class="car-name">Toyota Innova</h3>
+                            <p class="car-price">Rp 450.000 / hari</p>
+                        </div>
+                        <div class="car-details">
+                            <p class="car-detail"><i class="fas fa-user"></i> 7 Kursi</p>
+                            <p class="car-detail"><i class="fas fa-suitcase"></i> 4 Koper</p>
+                            <p class="car-detail"><i class="fas fa-gas-pump"></i> Diesel</p>
+                            <p class="car-detail"><i class="fas fa-cog"></i> Otomatis</p>
+                        </div>
+                        <a href="payment.php" class="rent-now-btn">Sewa Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Car Card 3 -->
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="jm/honda/civic.png" alt="Honda Civic">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3 class="car-name">Honda Civic</h3>
+                            <p class="car-price">Rp 500.000 / hari</p>
+                        </div>
+                        <div class="car-details">
+                            <p class="car-detail"><i class="fas fa-user"></i> 5 Kursi</p>
+                            <p class="car-detail"><i class="fas fa-suitcase"></i> 2 Koper</p>
+                            <p class="car-detail"><i class="fas fa-gas-pump"></i> Bensin</p>
+                            <p class="car-detail"><i class="fas fa-cog"></i> Otomatis</p>
+                        </div>
+                        <a href="payment.php" class="rent-now-btn">Sewa Sekarang</a>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="png_index/toyota/camry.png" alt="sedan">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3 class="car-name">toyota sedan</h3>
+                            <p class="car-price">Rp 500.000 / hari</p>
+                        </div>
+                        <div class="car-details">
+                            <p class="car-detail"><i class="fas fa-user"></i> 4 Kursi</p>
+                            <p class="car-detail"><i class="fas fa-suitcase"></i> 2 Koper</p>
+                            <p class="car-detail"><i class="fas fa-gas-pump"></i> Bensin</p>
+                            <p class="car-detail"><i class="fas fa-cog"></i> Otomatis</p>
+                        </div>
+                        <a href="payment.php" class="rent-now-btn">Sewa Sekarang</a>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="png_index/toyota/corolla.png" alt="sedan">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3 class="car-name">toyota corolla</h3>
+                            <p class="car-price">Rp 450.000 / hari</p>
+                        </div>
+                        <div class="car-details">
+                            <p class="car-detail"><i class="fas fa-user"></i> 4 Kursi</p>
+                            <p class="car-detail"><i class="fas fa-suitcase"></i> 2 Koper</p>
+                            <p class="car-detail"><i class="fas fa-gas-pump"></i> Bensin</p>
+                            <p class="car-detail"><i class="fas fa-cog"></i> Otomatis</p>
+                        </div>
+                        <a href="payment.php" class="rent-now-btn">Sewa Sekarang</a>
+                    </div>
+                </div>
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="png_index/mitsubishi/xpander.png" alt="sedan">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3 class="car-name">mitsubishi expander</h3>
+                            <p class="car-price">Rp 270.000 / hari</p>
+                        </div>
+                        <div class="car-details">
+                            <p class="car-detail"><i class="fas fa-user"></i> 4 Kursi</p>
+                            <p class="car-detail"><i class="fas fa-suitcase"></i> 2 Koper</p>
+                            <p class="car-detail"><i class="fas fa-gas-pump"></i> Bensin</p>
+                            <p class="car-detail"><i class="fas fa-cog"></i> Otomatis</p>
+                        </div>
+                        <a href="payment.php" class="rent-now-btn">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cara Kerja</h2>
+                <p>Sewa mobil dengan mudah dalam 3 langkah sederhana</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3>Pilih Mobil</h3>
+                    <p>Pilih mobil yang sesuai dengan kebutuhan perjalanan Anda dari koleksi kami yang lengkap</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Pesan & Bayar</h3>
+                    <p>Tentukan tanggal dan lokasi pengambilan, lalu lakukan pembayaran dengan metode yang Anda pilih</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Ambil & Nikmati</h3>
+                    <p>Ambil mobil di lokasi yang telah ditentukan dan nikmati perjalanan Anda dengan nyaman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Pelanggan</h2>
+                <p>Pengalaman pelanggan yang telah menggunakan layanan kami</p>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Layanan sangat profesional dan mobil dalam kondisi prima. Proses pemesanan juga sangat mudah. Pasti akan menggunakan RentCar lagi untuk perjalanan berikutnya!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://source.unsplash.com/random/50x50/?person1" alt="Ahmad">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ahmad Rizki</h4>
+                            <p>Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Saya sangat senang dengan pelayanan dan kondisi mobil yang disediakan. Harga yang ditawarkan juga sangat bersaing. Sangat direkomendasikan!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://source.unsplash.com/random/50x50/?person2" alt="Siti">
+                        </div>
+                        <div class="author-info">
+                            <h4>Siti Nurhaliza</h4>
+                            <p>Surabaya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Mobil yang saya sewa selalu dalam kondisi bersih dan terawat. Staff juga sangat membantu dan ramah. Pengalaman menyewa mobil terbaik yang pernah saya dapatkan!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://source.unsplash.com/random/50x50/?person3" alt="Budi">
+                        </div>
+                        <div class="author-info">
+                            <h4>Budi Santoso</h4>
+                            <p>Bandung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>RentCar</h3>
+                <p>Penyedia jasa sewa mobil terpercaya dengan armada lengkap dan terawat untuk memenuhi kebutuhan transportasi Anda.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="mobil.php">Mobil</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Layanan</h3>
+                <ul>
+                    <li><a href="#">Sewa Mobil Harian</a></li>
+                    <li><a href="#">Sewa Mobil Mingguan</a></li>
+                    <li><a href="#">Sewa Mobil Bulanan</a></li>
+                    <li><a href="#">Sewa Mobil dengan Sopir</a></li>
+                    <li><a href="#">Antar Jemput Bandara</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Kontak</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Jl. Raya Perkantoran No. 123, Jakarta</li>
+                    <li><i class="fas fa-phone"></i> +62 812-3456-7890</li>
+                    <li><i class="fas fa-envelope"></i> info@rentcar.com</li>
+                    <li><i class="fas fa-clock"></i> Senin - Minggu: 08:00 - 20:00</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 RentCar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Data mobil (Anda bisa ganti dengan data sebenarnya dari database)
+// Data mobil (Anda bisa ganti dengan data sebenarnya dari database)
+const cars = [
+  { id: 1, name: "Toyota Camry", type: "sedan", price: "Rp 500.000 / hari", image: "png_index/toyota/camry.png" },
+  { id: 2, name: "Honda Civic", type: "sedan", price: "Rp 480.000 / hari", image: "jm/honda/civic.png" },
+  { id: 3, name: "Toyota Corolla Altis", type: "sedan", price: "Rp 450.000 / hari", image: "png_index/toyota/corolla.png" },
+  { id: 4, name: "Honda CR-V", type: "suv", price: "Rp 550.000 / hari", image: "png_index/honda/crv.png" },
+  { id: 5, name: "Toyota Fortuner", type: "suv", price: "Rp 600.000 / hari", image: "png_index/toyota/fortuner.png" },
+  { id: 6, name: "Mitsubishi Pajero", type: "suv", price: "Rp 650.000 / hari", image: "png_index/mitsubishi/pajero.png" },
+  { id: 7, name: "Toyota Avanza", type: "mpv", price: "Rp 250.000 / hari", image: "jm/toyota/avanza.png" },
+  { id: 8, name: "Mitsubishi Xpander", type: "mpv", price: "Rp 270.000 / hari", image: "png_index/mitsubishi/xpander.png" },
+  { id: 9, name: "Honda Mobilio", type: "mpv", price: "Rp 230.000 / hari", image: "png_index/honda/mobilo.png" },
+  { id: 10, name: "Toyota Yaris", type: "hatchback", price: "Rp 280.000 / hari", image: "png_index/toyota/yaris.png" },
+  { id: 11, name: "Honda Jazz", type: "hatchback", price: "Rp 270.000 / hari", image: "png_index/honda/jazz.png" },
+  { id: 12, name: "Mazda 2", type: "hatchback", price: "Rp 300.000 / hari", image: "png_index/mitsubishi/mazda.png" }
+];
+
+// Function to generate car cards
+function displayCars() {
+  const carList = document.getElementById('car-list');
+  carList.innerHTML = ''; // Clear existing content
+
+  cars.forEach(car => {
+    const carCard = `
+      <div class="car-card">
+        <div class="car-image">
+          <img src="${car.image}" alt="${car.name}">
+        </div>
+        <div class="car-info">
+          <div class="car-title">
+            <h3 class="car-name">${car.name}</h3>
+            <p class="car-price">${car.price}</p>
+          </div>
+          <div class="car-details">
+            <p class="car-detail"><i class="fas fa-user"></i> 5 Kursi</p>
+            <p class="car-detail"><i class="fas fa-suitcase"></i> 2 Koper</p>
+            <p class="car-detail"><i class="fas fa-gas-pump"></i> Bensin</p>
+            <p class="car-detail"><i class="fas fa-cog"></i> Manual</p>
+          </div>
+          <a href="payment.php" class="rent-now-btn">Sewa Sekarang</a>
+        </div>
+      </div>
+    `;
+    carList.innerHTML += carCard; // Append the car card to the car list
+  });
+}
+
+// Call the function to display cars
+displayCars(); 
+
+// Tambahkan style untuk mengatur ukuran gambar
+function addImageStyle() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .card-img-container {
+      height: 200px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+    }
+    
+    .card-img-top {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// Fungsi untuk menampilkan mobil sesuai filter
+function displayCars(carType = "") {
+  const carContainer = document.getElementById("car-list") || createCarListContainer();
+  
+  // Kosongkan container terlebih dahulu
+  carContainer.innerHTML = "";
+  
+  // Filter mobil berdasarkan jenis yang dipilih
+  const filteredCars = carType ? cars.filter(car => car.type === carType) : cars;
+  
+  if (filteredCars.length === 0) {
+    carContainer.innerHTML = "<p class='alert alert-info'>Tidak ada mobil yang tersedia untuk jenis ini.</p>";
+    return;
+  }
+  
+  // Buat tampilan untuk setiap mobil
+  filteredCars.forEach(car => {
+    const carCard = document.createElement("div");
+    carCard.className = "col-md-4 mb-4";
+    carCard.innerHTML = `
+      <div class="card">
+        <div class="card-img-container">
+          <img src="${car.image}" class="card-img-top" alt="${car.name}">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">${car.name}</h5>
+          <p class="card-text">Jenis: ${car.type.toUpperCase()}</p>
+          <p class="card-text">Harga: ${car.price}</p>
+          <a href="#" class="btn btn-primary" onclick="showCarDetails(${car.id})">Lihat Detail</a>
+        </div>
+      </div>
+    `;
+    carContainer.appendChild(carCard);
+  });
+}
+
+// Fungsi untuk membuat container jika belum ada
+function createCarListContainer() {
+  const container = document.createElement("div");
+  container.id = "car-list";
+  container.className = "row mt-4";
+  
+  // Cari elemen setelah dropdown untuk memasukkan container
+  const formGroup = document.querySelector(".form-group");
+  const parentElement = formGroup.parentElement;
+  parentElement.appendChild(container);
+  
+  return container;
+}
+
+// Fungsi untuk menampilkan detail mobil (bisa dikembangkan lebih lanjut)
+function showCarDetails(carId) {
+  const car = cars.find(car => car.id === carId);
+  if (car) {
+    alert(`Detail Mobil:\nNama: ${car.name}\nJenis: ${car.type.toUpperCase()}\nHarga: ${car.price}`);
+    // Atau bisa redirect ke halaman detail: window.location.href = `/detail-mobil.html?id=${carId}`;
+  }
+}
+
+// Event listener untuk dropdown
+document.addEventListener("DOMContentLoaded", function() {
+  // Tambahkan style untuk gambar
+  addImageStyle();
+  
+  const carTypeDropdown = document.getElementById("car-type");
+  
+  // Tampilkan semua mobil saat halaman dimuat
+  displayCars();
+  
+  // Event listener ketika pilihan dropdown berubah
+  carTypeDropdown.addEventListener("change", function() {
+    const selectedType = this.value;
+    displayCars(selectedType);
+  });
+});
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mengatur tanggal minimum untuk input tanggal
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(today.getDate() + 1);
+            
+            const pickupDateInput = document.getElementById('pickup-date');
+            const returnDateInput = document.getElementById('return-date');
+            
+            // Format tanggal ke YYYY-MM-DD
+            const formatDate = (date) => {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            };
+            
+            // Set tanggal minimum untuk pengambilan (hari ini)
+            pickupDateInput.min = formatDate(today);
+            pickupDateInput.value = formatDate(today);
+            
+            // Set tanggal minimum untuk pengembalian (besok)
+            returnDateInput.min = formatDate(tomorrow);
+            returnDateInput.value = formatDate(tomorrow);
+            
+            // Update tanggal minimum pengembalian saat tanggal pengambilan berubah
+            pickupDateInput.addEventListener('change', function() {
+                const newPickupDate = new Date(this.value);
+                const newMinReturnDate = new Date(newPickupDate);
+                newMinReturnDate.setDate(newPickupDate.getDate() + 1);
+                
+                returnDateInput.min = formatDate(newMinReturnDate);
+                
+                // Jika tanggal pengembalian sebelum tanggal pengambilan baru, update
+                if (new Date(returnDateInput.value) <= newPickupDate) {
+                    returnDateInput.value = formatDate(newMinReturnDate);
+                }
+            });
+            
+            // Smooth scroll untuk link 'Sewa Sekarang'
+            document.querySelector('.cta-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="/jss/booking.js"></script>
+</body>
+</html>

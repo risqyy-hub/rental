@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - AutoRent</title>
+    <link rel="stylesheet" href="stylesm.css">
+     <script src="/jss/m.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Auto<span>Rent</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="mobil.php">Mobil</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="login-btn">Masuk</a>
+                    <a href="register.php" class="register-btn">Daftar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <div class="container">
+            <h1>Tentang Kami</h1>
+            <p>Mengenal lebih dekat dengan AutoRent</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="logo.png" alt="AutoRent Team"  width="50" height="50">
+                </div>
+                <div class="about-text">
+                    <h2>Cerita Kami</h2>
+                    <p>web ini di buat karena kami mendapatkan tugas untuk persyaratan naik kelas</p>
+                    <p>ini adalah tugas dari dasar-dasar program keahlian</p>
+                    <p>jika ada yang kurang pas mohon maaf sebesar-besarnya dan mohon bimmbingannya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mission-vision-content">
+                <div class="mission">
+                    <h2>Misi Kami</h2>
+                    <p>Menyediakan layanan persewaan mobil berkualitas tinggi dengan harga terjangkau, memberi pelanggan akses mudah ke transportasi yang aman dan nyaman untuk segala keperluan mereka.</p>
+                </div>
+                <div class="vision">
+                    <h2>Visi Kami</h2>
+                    <p>Menjadi penyedia jasa persewaan mobil terdepan di Indonesia dengan standar kualitas internasional dan pengalaman pelanggan yang luar biasa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AutoRent</h3>
+                    <p>Layanan persewaan mobil terpercaya dengan armada berkualitas dan pelayanan profesional.</p>
+                    <div class="social-links">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>YT</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="mobil.php">Mobil</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Sewa Mobil</a></li>
+                        <li><a href="#">Sewa dengan Sopir</a></li>
+                        <li><a href="#">Antar-Jemput</a></li>
+                        <li><a href="#">Sewa Jangka Panjang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li>Jl. Raya Utama No. 123, Jakarta</li>
+                        <li>info@autorent.com</li>
+                        <li>+62 21 5678 9012</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoRent. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="form-title">Masuk ke Akun Anda</h2>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Masuk</button>
+                <div class="form-footer">
+                    <p>Belum punya akun? <a href="#" id="showRegister">Daftar di sini</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="form-title">Daftar Akun Baru</h2>
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label for="reg-name">Nama Lengkap</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-phone">Nomor Telepon</label>
+                    <input type="tel" id="reg-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm-password">Konfirmasi Password</label>
+                    <input type="password" id="reg-confirm-password" required>
+                </div>
+                <button type="submit" class="btn">Daftar</button>
+                <div class="form-footer">
+                    <p>Sudah punya akun? <a href="#" id="showLogin">Masuk di sini</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
